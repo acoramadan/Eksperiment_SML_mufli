@@ -25,7 +25,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    
+  
     - name: Run preprocessing
       run: |
         python automated_mufli.py
@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: tfidf-preprocessor
-        path: artifacts/preprocessor.joblib
+        path: artifacts/preprocessing.joblib
