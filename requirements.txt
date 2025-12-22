@@ -10,3 +10,5 @@ joblib
 fsspec
 huggingface_hub
 emoji
+nltk
+wordcloud
