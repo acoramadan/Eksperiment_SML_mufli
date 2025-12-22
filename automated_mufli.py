@@ -88,7 +88,8 @@ def data_preprocessing(df_path, target_cols, save_path, test_size=0.2):
 
 def main():
     CSV_PATH = 'hf://datasets/nikesh66/Sarcasm-dataset/sarcasm_tweets.csv'
-
+    nltk.download("punkt")
+    nltk.download("punkt_tab") 
     data_preprocessing(
         df_path=CSV_PATH, 
         target_cols='Sarcasm (yes/no)', 
