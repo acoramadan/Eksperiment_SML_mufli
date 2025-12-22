@@ -1,0 +1,37 @@
+name: CI Preprocessing
+on:
+  push:
+    branches:
+      - main
+  
+  pull_request:
+    branches:
+      - main
+  
+jobs:
+  preprocessing-text:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+    - action: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+      
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run preprocessing
+      run:  |
+        python automated_mufli.py
+        
+    - name: Upload preprocessing artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: tfidf-preprocessor
+        path: artifacts/preprocessor.joblib
