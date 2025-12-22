@@ -6,14 +6,11 @@ import os
 from nltk.tokenize import word_tokenize
 from wordcloud import STOPWORDS
 from sklearn.model_selection import train_test_split
-from transformers import BertTokenizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.compose import ColumnTransformer
 from joblib import dump
-from sklearn.preprocessing import FunctionTransformer
 
 def cleaning_text(text):
     text = re.sub(r'@[A-Za-z0-9]+', '', text) # menghapus mention
@@ -91,7 +88,7 @@ def data_preprocessing(df_path, target_cols, save_path, test_size=0.2):
 
 def main():
     CSV_PATH = 'hf://datasets/nikesh66/Sarcasm-dataset/sarcasm_tweets.csv'
-    
+
     data_preprocessing(
         df_path=CSV_PATH, 
         target_cols='Sarcasm (yes/no)', 
