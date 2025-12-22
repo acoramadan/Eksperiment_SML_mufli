@@ -11,7 +11,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.compose import ColumnTransformer
 from joblib import dump
-
+import nltk
 def cleaning_text(text):
     text = re.sub(r'@[A-Za-z0-9]+', '', text) # menghapus mention
     text = re.sub(r'#[A-Za-z0-9]+', '', text) # menghapus hashtag
