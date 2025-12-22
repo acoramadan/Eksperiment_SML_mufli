@@ -1,20 +1,20 @@
 name: CI Preprocessing
+
 on:
   push:
     branches:
       - main
-  
   pull_request:
     branches:
       - main
-  
+
 jobs:
   preprocessing-text:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-    - action: actions/checkout@v4
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -27,7 +27,7 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run preprocessing
-      run:  |
+      run: |
         python automated_mufli.py
         
     - name: Upload preprocessing artifact
