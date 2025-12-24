@@ -1,3 +1,6 @@
 /artifacts
 *.joblib
 /__pycache__
+*.png
+*.db
+/data

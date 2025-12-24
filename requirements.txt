@@ -6,7 +6,6 @@ numpy
 scikit-learn
 joblib
 
-# Hugging Face filesystem support (hf://)
 fsspec
 huggingface_hub
 emoji
