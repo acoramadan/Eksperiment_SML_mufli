@@ -81,6 +81,7 @@ def data_preprocessing(df_path, target_cols, save_path, test_size=0.2):
     X_train = preprocessor.fit_transform(X_train)
     X_test = preprocessor.transform(X_test)
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    os.makedirs(os.path.dirname('../data/'), exist_ok=True)
     dump(preprocessor, save_path)
     dump(X_train, "../data/X_train.pkl")
     dump(X_test,  "../data/X_test.pkl")
@@ -89,7 +90,7 @@ def data_preprocessing(df_path, target_cols, save_path, test_size=0.2):
     return X_train, X_test, y_train, y_test, df
 
 def main():
-    CSV_PATH = 'hf://datasets/nikesh66/Sarcasm-dataset/sarcasm_tweets.csv'
+    CSV_PATH = 'sarcasm.csv'
     nltk.download("punkt")
     nltk.download("punkt_tab") 
     data_preprocessing(
