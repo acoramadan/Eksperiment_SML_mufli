@@ -80,7 +80,7 @@ def data_preprocessing(df_path, target_cols, save_path, test_size=0.2):
 
     X_train = preprocessor.fit_transform(X_train)
     X_test = preprocessor.transform(X_test)
-    
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     dump(preprocessor, save_path)
     dump(X_train, "../data/X_train.pkl")
     dump(X_test,  "../data/X_test.pkl")
